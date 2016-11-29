@@ -5,5 +5,5 @@ tags:
 - welcome
 ---
 {% blockquote Pablo Ruiz Picasso %}
-Everything you can imagine is real.
+Everything you can imagine is real
 {% endblockquote %}
