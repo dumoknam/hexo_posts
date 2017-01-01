@@ -35,18 +35,17 @@ React Native의 기반이 되는 React에 대한 포스팅은 [이 블로그](ht
 환경설정을 하고, 시작은 언제나 그렇듯 Hello World를 찍어보자
 
 #### 설치
-우선 [노드](https://nodejs.org)가 필요하다. 이 포스팅을 작성하는 2017년 1월 1일의 최신 LTS 버전인 v6.9.2 를 사용하겠다. [공식사이트](https://nodejs.org)에서 다운로드, 설치하자.
+우선 [노드](https://nodejs.org)가 필요하다. [공식사이트](https://nodejs.org)에서 다운로드, 설치하자.
 
 설치 후 `node -v` 커맨드를 입력하면,
 ![node_version](https://lh3.googleusercontent.com/1ksUkevVsXBUY9pumMT46Kqc1YAsU60_MSbw7tw-uxNPegkrRFdlGb2HeglmbiHzZBbtXKRsMbXzrA=w2560-h1440-no)
-6.9.2 버전이 확인된다.
+현재 버전 6.9.2 이 확인된다.
 
 
-다음은 React Native CLI 설치이다. 노드 설치 후에 `npm install -g react-native-cli` 커맨드로 설치하자(이 포스팅과 동일한 버전을 사용하려면, `npm install -g react-native-cli@2.0.1` 커맨드로 버전을 명시해서 설치하자).
+다음은 React Native CLI 설치이다. 노드 설치 후에 `npm install -g react-native-cli` 커맨드로 설치하자
 ![react-native-cli_version](https://lh3.googleusercontent.com/is7ijoGDhoWX7Q8GKRRwZ3sl06VuIexWYLguNnB5NioMJO2KYRQtgkQkw3NzFN1IPM3bYeFBNYmKfg=w2560-h1440-no)
 
-다음은 `react-native init HelloWorld` 커맨드로 프로젝트를 생성한다.
-
+다음은 `react-native init HelloWorld` 커맨드를 입력한다 - 앱의 기본 틀을 생성해준다.
 ![react-native_init](https://lh3.googleusercontent.com/RiCLKIP60pwNE3prNqTijCqe-ZK2_6DaNFFO6wevmgrJSh7ZXoJzvt6nomSQtV7MdO-16YOs8OZRcA=w2560-h1440-no)
 시간이 조금 걸린다..
 
@@ -58,7 +57,7 @@ iOS 실행하기: `react-native run-ios` *(맥에서만 가능하다!)*
 
 Android 실행하기: `react-native run-android` *(에뮬레이터 설정이 되어있어야 한다!)*
 
-안드로이드는 에뮬레이터 설정이 필요하고, 맥 사용자라면 위 명령어를 통해 바로 아이폰 앱을 실행할 수 있다.
+안드로이드는 에뮬레이터 설정이 필요하고, 맥 사용자라면 위 iOS 실행 명령어를 통해 바로 아이폰 앱을 실행할 수 있다.
 
 안드로이드 에뮬레이터 설정은 [이 포스팅](http://kwon-9981.tistory.com/15)을 참고하자.
 
@@ -128,7 +127,7 @@ AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
 
 위 코드는 크게 4 부분으로 구성되어 있다.
 1. import: react와 react-native의 컴포넌트들을 불러온다.
-2. HelloWorld class: 핵심은 render 함수. 화면에 무엇을 어떻게 그릴지 정의한다. View 안에 Text 를 정의하고 있다.
+2. HelloWorld class: 핵심은 render 함수. 화면에 무엇을 어떻게 그릴지 정의한다. react-native 컴포넌트인 View 안에 또 다른 컴포넌트 Text 를 사용하고 있다.
 3. StyleSheet: 화면에 나타날 모양을 정의한다. css다. **이번 포스팅에선 StyleSheet를 생성하지 않고 바로 스타일을 적용할 것이다.**
 4. AppRegistry: Helloworld 컴포넌트를 실행하도록 등록하는 작업이다.
 
@@ -222,6 +221,6 @@ AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
 
 글자가 좀 떨어져 나오는 것을 볼 수 있다.
 
-레이아웃이나 스타일에 대해서는 앱을 만들면서 하나씩 알아보도록 하자.
+react-native 컴포넌트, 레이아웃, 스타일 등에 대해서는 앱을 만들면서 하나씩 알아보도록 하자.
 
 오늘은 이만!
