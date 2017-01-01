@@ -13,14 +13,6 @@ tags:
 
 하여 정한 주제는 React Native.
 
-### [React Native](https://facebook.github.io/react-native/)
-자바스크립트와 React로 모바일 앱을 만드는 기술이라고 한다.
-
-### [React](https://facebook.github.io/react/)
-화면 개발에 사용되는 자바스크립트 라이브러리이다.
-
-React Native의 기반이 되는 React에 대한 포스팅은 [이 블로그](https://velopert.com/reactjs-tutorials)를 추천한다.
-
 ## 일기장
 
 일기장 앱을 만드는 튜토리얼을 포스팅 할 것이다.
@@ -29,6 +21,15 @@ React Native의 기반이 되는 React에 대한 포스팅은 [이 블로그](ht
 
 여튼 튜토리얼에 자주 나오는 예제가 TODO 만들기 인데, 이를 조금 변형하고자 한다.
 
+<!-- more -->
+
+### [React Native](https://facebook.github.io/react-native/)
+자바스크립트와 React로 모바일 앱을 만드는 기술이라고 한다.
+
+### [React](https://facebook.github.io/react/)
+화면 개발에 사용되는 자바스크립트 라이브러리이다.
+
+React Native의 기반이 되는 React에 대한 포스팅은 [이 블로그](https://velopert.com/reactjs-tutorials)를 추천한다.
 
 ## Hello World
 환경설정을 하고, 시작은 언제나 그렇듯 Hello World를 찍어보자
