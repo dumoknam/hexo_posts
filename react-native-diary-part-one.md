@@ -3,10 +3,10 @@ title: React Native 일기장 앱 만들기 (1) - Hello World
 date: 2017-01-01 23:27:51
 categories:
 - 개발
-- ReactNative
+- React Native
 tags:
-- 개발
-- ReactNative
+- React Native
+- App
 ---
 
 2017년을 맞아 새로운걸 공부해보자!
@@ -39,6 +39,7 @@ React Native의 기반이 되는 React에 대한 포스팅은 [이 블로그](ht
 설치 후 `node -v` 커맨드를 입력하면,
 ![node_version](https://lh3.googleusercontent.com/1ksUkevVsXBUY9pumMT46Kqc1YAsU60_MSbw7tw-uxNPegkrRFdlGb2HeglmbiHzZBbtXKRsMbXzrA=w2560-h1440-no)
 6.9.2 버전이 확인된다.
+
 
 다음은 React Native CLI 설치이다. 노드 설치 후에 `npm install -g react-native-cli` 커맨드로 설치하자(이 포스팅과 동일한 버전을 사용하려면, `npm install -g react-native-cli@2.0.1` 커맨드로 버전을 명시해서 설치하자).
 ![react-native-cli_version](https://lh3.googleusercontent.com/is7ijoGDhoWX7Q8GKRRwZ3sl06VuIexWYLguNnB5NioMJO2KYRQtgkQkw3NzFN1IPM3bYeFBNYmKfg=w2560-h1440-no)
@@ -123,6 +124,7 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
 ```
 
+
 위 코드는 크게 4 부분으로 구성되어 있다.
 1. import: react와 react-native의 컴포넌트들을 불러온다.
 2. HelloWorld class: 핵심은 render 함수. 화면에 무엇을 어떻게 그릴지 정의한다. View 안에 Text 를 정의하고 있다.
@@ -130,6 +132,7 @@ AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
 4. AppRegistry: Helloworld 컴포넌트를 실행하도록 등록하는 작업이다.
 
 미리 써있는 문구 대신 Hello World를 쓰기 위해 우리가 수정해야 할 곳은 2번과 3번이다. 지워버리자.
+
 
 ```javascript index.ios.js
 /**
@@ -149,12 +152,14 @@ import {
 AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
 ```
 
+
 위 코드에서 시작한다. ~~주석만 조금 수정했다~~
 
 - 우선 Hello World 라는 텍스트를 입력해야 한다. `<Text>Hello World!</Text>`
 - 이 텍스트가 들어갈 HelloWorld라는 class를 생성해야 하고, `class HelloWorld`
 - class는 react의 Component를 상속해야 한다. `extends Component`
 - Component는 화면에 그리는 render 함수를 구현해야 한다. `render() { return (...); }`
+
 
 여기까지 합치면 다음과 같다.
 
@@ -183,6 +188,7 @@ export default class HelloWorld extends Component {
 AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
 ```
 
+
 여기까지 저장하고 실행해보자
 `react-native run-ios` *(안드로이드는 `react-native run-android`)*
 
@@ -196,10 +202,16 @@ AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
 글자에 margin을 줘서 떨어지게 해보자.
 
 `<Text>Hello World!</Text>` 를
+```javascript 
+<Text style={{ margin:20 }}>Hello World!</Text>
+```
+로 바꿔서 저장하자.
 
-`<Text style={{margin:20}}>Hello World!</Text>` 로 바꿔서 저장하자.
-
-글자 크기도 좀 바꾸고 싶다면 `<Text style={{margin:20, fontSize:15}}>Hello World!</Text>`처럼 작성하면 된다.
+글자 크기도 좀 바꾸고 싶다면 
+```javascript
+<Text style={{margin:20, fontSize:15}}>Hello World!</Text>
+```
+처럼 작성하면 된다.
 
 **CSS에서는 하이픈(-)을 사용하지만, react의 컴포넌트에서 쓸 때는 font-size 대신 fontSize 처럼 CamelCase로 적어야 한다.**
 
