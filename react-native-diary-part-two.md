@@ -24,8 +24,12 @@ tags:
 
 ## 글쓰기 버튼 달기
 
-저번 포스팅의 `react-native init Diary` 명령어로 자동 생성된 코드에 버튼만 추가하겠다.
+### Diary 프로젝트 생성
 
+`react-native init Diary` 명령어로 프로젝트를 생성하자.
+![diary_init](0104_01_init.png)
+
+이번 포스팅은 자동 생성된 코드에 버튼만 추가하겠다.
 > [NativeBase](http://nativebase.io)나 [react-native-action-button](https://github.com/mastermoo/react-native-action-button)같은 컴포넌트를 활용해도 좋다.
 
 완성된 버튼은 이런 모양이다.
