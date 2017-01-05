@@ -18,7 +18,7 @@ tags:
 
 ![diary_mockup](Diary.png)
 
-제일 위에 연도와 월(2017-01)이 타이틀로 있고, 일기 내용이 리스트 형태로 쭉 이어지는 형태이다.
+제일 위에 연도와 월(2017-01)이 타이틀로 있고, 일기 내용이 리스트로 쭉 이어지는 형태이다.
 오른쪽 하단에는 **글쓰기 버튼 +**이 있다.
 일단 이 글쓰기 버튼부터 달아보자.
 
@@ -183,12 +183,12 @@ AppRegistry.registerComponent('Diary', () => Diary);
 `index.ios.js` 파일에서도 볼 수 있듯이,
 스타일을 지정할 때에는 StyleSheet라는 컴포넌트를 사용하면 된다.(웹의 css와 동일한 역할이다)
 
-StyleSheet에 두가지 스타일이 필요하다.
+StyleSheet로 두 종류의 스타일 정의가 필요하다.
 1. 버튼의 + 글자 스타일 (writeButtonText)
 2. 버튼 스타일(writeButton)
 
 #### writeButtonText Style
-완성된 화면의 버튼 모양을 보면, 버튼의 + 텍스트는 흰 색깔과 폰트 크기만 지정하면 된다.
+버튼의 + 텍스트는 흰 색깔과 폰트 크기만 지정하면 된다.
 - fontSize: 25
 - color: 'white'
 
