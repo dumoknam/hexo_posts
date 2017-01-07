@@ -1,5 +1,5 @@
 ---
-title: React Native 일기장 앱 만들기 (2) - 글쓰기 버튼
+title: React Native 일기장 앱 개발 (1) - 글쓰기 버튼
 date: 2017-01-05 22:58:50
 categories:
 - 개발
