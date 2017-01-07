@@ -1,5 +1,5 @@
 ---
-title: React Native 일기장 앱 만들기 (1) - Hello World
+title: React Native 일기장 앱 개발 (0) - Hello World
 date: 2017-01-01 23:27:51
 categories:
 - 개발
