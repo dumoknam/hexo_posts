@@ -187,7 +187,10 @@ AppRegistry.registerComponent('Diary', () => Diary);
 `index.ios.js` 파일에서도 볼 수 있듯이,
 스타일을 지정할 때에는 StyleSheet라는 컴포넌트를 사용하면 된다.(웹의 css와 동일한 역할이다)
 
-StyleSheet로 두 종류의 스타일 정의가 필요하다.
+우선 StyleSheet 컴포넌트를 import 한다.
+`TouchableOpacity`,`Text`를 import한 구문 아래에 `StyleSheet`를 추가하자.
+
+StyleSheet에는 두 종류의 스타일 정의가 필요하다.
 1. 버튼의 + 글자 스타일 (writeButtonText)
 2. 버튼 스타일(writeButton)
 
@@ -223,10 +226,15 @@ StyleSheet로 두 종류의 스타일 정의가 필요하다.
 - shadowRadius: 2
 - shadowOffset: {  height: 1,  width: 0, }
 
-스타일을 다 합치면 아래 코드와 같다.
+추가된 스타일 코드를 다 합치면 아래와 같다.
 ``` javascript src/components/WriteButton.js
 // ...기존코드 생략...
-
+import {
+  Text,
+  TouchableOpacity,
+  StyleSheet
+} from 'react-native';
+// ...기존코드 생략...
 const styles = StyleSheet.create({
   writeButton: {
     backgroundColor: '#001f3f',
@@ -255,12 +263,8 @@ const styles = StyleSheet.create({
 ```
 
 ### StyleSheet 적용하기
-생성한 styles를 적용하기 위해서는 아래 작업이 필요하다.
-1. StyleSheet를 import 한다.
-2. 컴포넌트의 style prop에 적용할 스타일을 지정한다.
+생성한 styles를 적용하려면 컴포넌트마다 style prop에 적용할 스타일을 지정해야 한다.
 
-import는 `TouchableOpacity`,`Text`를 import한 구문 아래에 `StyleSheet`를 적으면 되고,
-style을 지정하기 위해서는
 ```javascript
 <TouchableOpacity>
 <Text>
