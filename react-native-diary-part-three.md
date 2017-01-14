@@ -46,6 +46,7 @@ export default class Diary extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f8f8f8',
   }
 });
 
@@ -253,9 +254,10 @@ export default class DiaryListView extends Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 10,
+    margin: 5,
     padding: 5,
     shadowColor: '#000000',
+    backgroundColor: '#FFFFFF',
     shadowOpacity: 0.2,
     shadowRadius: 0.2,
     shadowOffset: {
@@ -335,6 +337,7 @@ export default class Diary extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f8f8f8',
   }
 });
 
