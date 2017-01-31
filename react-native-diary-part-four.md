@@ -64,7 +64,6 @@ const DiarySchema = {
 };
 ```
 모델을 정의하는 schema에 대한 내용은 [문서][realm-doc-model]를 참고하자.
-
 name에 테이블명을 정의하고 pk, DB의 컬럼에 해당하는 property를 정의한다.
 
 일기는 id와 숫자 타입의 연, 월, 일, 그리고 string 타입의 일기 내용 문자열을 property로 갖는다.
@@ -106,7 +105,6 @@ var diary_data = {
 
 ### Update, 일기 데이터 수정
 수정은 생성과 동일한 함수를 사용한다.
-
 optional 인자인 세번째 인자 값에 `true` 를 호출하면 update로 동작한다.
 ```javascript
 update(data){
@@ -119,7 +117,6 @@ update(data){
 
 ### Filtering, Sorting, 일기 데이터 조회
 일기 목록은 한번에 한 달의 목록만 조회할 것이다.
-
 조회할 연, 월을 인자로 전달받게 하였다.
 ```javascript
 getDiaryByYearMonth(year, month){
@@ -128,11 +125,9 @@ getDiaryByYearMonth(year, month){
 }
 ```
 조건을 지정하여 조회하는 메소드가 `filtered` 이고, 정렬 메소드가 `sorted` 이다. 
-
 전체 Diary 중에 인자로 전달받은 year와 month를 각각 $0, $1에 지정하여 조회하도록 하였다.
 
 날짜별로 정렬할 것이므로 `sorted`에 정렬 기준인 `day`를, 역순으로 정렬하기 위해 `true`를 전달한다.
-
 `sorted('day')` 처럼 정렬 기준만 쓰거나, 두번째 인자로 `false`를 쓰면 날짜 순서대로 정렬이 된다.
 
 ### Delete, 일기 데이터 삭제
@@ -171,7 +166,6 @@ _javascript의 월(month)은 0~11이어서 1월을 0으로 사용하였다_
 {% gist 40fc61aaef6fe8930447e12575b41819 WriteButton.js %}
 
 WriteButton 터치시 Alert이 나타나던 부분을 삭제하고, 임의로 3개의 데이터를 생성하도록 변경하였다.
-
 id값은 매번 `getNextId`를 호출하여 새로운 값을 받아오도록 하였다.
 
 ## 확인
