@@ -153,12 +153,14 @@ DB의 기본 기능인 CRUD에 대한 구현이 다 되었다.
 두개 파일만 수정하면 된다.
 
 ## DiaryListView 수정
-리스트뷰에서 수정할 부분은 datasource를 지정하는 곳과 `renderRow` 함수이다.
+리스트뷰에서 수정할 부분은 `state`의 `datasource`를 지정하는 곳과 `renderRow` 이다.
 {% gist e22ea01d28fe83bfd453583d3ea1a5b5 DiaryListView.js %}
 
-`TempDiaryContents` 를 불러오던 코드를 삭제하고,
-`realm`의 `getDiaryByYearMonth` 메소드를 결과값을 datasource로 설정하도록 변경하였다.
+임시 일기 데이터인 `TempDiaryContents` 를 불러오던 코드를 삭제하고,
+`realm`의 `getDiaryByYearMonth` 메소드 결과값을 datasource로 설정하도록 변경하였다.
 _javascript의 월(month)은 0~11이어서 1월을 0으로 사용하였다_
+
+2017년 1월을 하드코딩 해서 사용중인데.. 날짜를 선택하는 기능도 다음에 추가될 것이다.
 
 `renderRow`에서 바뀐건 타이틀 텍스트 부분이다. 
 위에서 정의한 schema에 `title` 이라는 property가 없으므로, 
@@ -175,12 +177,13 @@ id값은 매번 `getNextId`를 호출하여 새로운 값을 받아오도록 하
 ## 확인
 
 `react-native run-android`로 에뮬레이터에 앱을 실행하고,
+
 ![before](before.png)
 
-+ 버튼을 누르면, 아무 변화가 없다..
+글쓰기 버튼 (+)을 누르면, 아무 변화가 없다..
 _데이터가 추가되면 리스트가 자동 갱신 되어야 하는데, 이 기능은 다음 포스팅에서.._
 
-키보드의 R 키를 두번 누르면, 페이지가 리로드 되어 추가된 데이터의 확인이 가능하다
+키보드의 R 키를 두번 눌러 페이지를 리로드 하면 잘 보인다.
 ![after](after.png)
 
 realm 연동이 되었으니, 다음엔 글쓰기 화면을 만들어 보자.
