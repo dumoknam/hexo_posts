@@ -18,7 +18,7 @@ _아이맥 하드가 급 사망하여 윈도우 PC로 대체하였다.. 이번�
 # Realm
 
 일기를 저장하기 위해서는 DB 연동이 필요하다
-`sqlite` 이나 다른 DB도 많지만 모바일 환경에 더 최적화 되었다고 하는 `realm(렘)`을 사용해보자.
+`sqlite`, `firebase` 등등 다른 DB도 많지만 모바일 환경에 최적화 되었다고 하는 `realm(렘)`을 사용해보자.
 
 ## Realm 설치
 
@@ -27,9 +27,9 @@ npm install --save realm
 react-native link realm # React Native >= 0.31.0
 ```
 
-다른 node 모듈처럼 `npm`(혹은 `yarn`)으로 설치하고,
-link 명령어가 native 코드에 필요한 import, new 등의 작업을 해준다.
-(android는, `android\app\src\main\java\com\diary` 안의 java 파일에 realm 관련 import 구문이 추가된 것을 볼 수 있다)
+설치는 다른 node 모듈처럼 `npm`(혹은 `yarn`) 명령어로 설치하고,
+link 명령어가 react-native 프로젝트와 `realm`을 연결하는 작업을 해준다.
+(native 코드에 필요한 import, new 등의 작업으로, android는 `android\app\src\main\java\com\diary` 안의 java 파일에 realm 관련 import 구문이 추가된 것을 볼 수 있다)
 
 ### error fix (windows)
 
@@ -37,9 +37,9 @@ realm 사용시 두가지 주의할 점이 있다.
 _포스팅은 0.14버전 기준으로, 이후 버전은 다를 수 있다_
 
 1. cmd, powershell, babun 등 쉘은 반드시 **관리자** 권한으로 실행해야 한다.
-2. `node_modules\realm\android\build.gradle`의 task send()안의 71 번째 줄 version을 version = '1' 로 변경한다.
+2. `node_modules\realm\android\build.gradle`의 task send()안의 71 번째 줄 version 뒤에 코드를 지우고 version = '1' 로 변경한다.
 
-2번은 하드코딩 하지 않고, npm을 path까지 적으면 된다고도 한다. 해보진 않았다.
+2번은 npm을 path까지 적는 다른 해결법도 있다고 한다. 해보진 않았다.
 
 ## DiaryRealm
 realm DB에 데이터를 생성, 수정, 삭제, 조회하는 모든 기능은 `DiaryRealm.js` 한 파일에 구현할 것이다.
@@ -63,15 +63,15 @@ const DiarySchema = {
 };
 ```
 모델을 정의하는 schema에 대한 내용은 [문서][realm-doc-model]를 참고하자.
-name에 테이블명을 정의하고 pk, DB의 컬럼에 해당하는 property를 정의한다.
+name에 테이블명을 정의하고 primaryKey에 pk를 적고, DB의 컬럼에 해당하는 property를 정의한다.
 
-일기는 id와 숫자 타입의 연, 월, 일, 그리고 string 타입의 일기 내용 문자열을 property로 갖는다.
+일기는 id와 숫자 타입의 연, 월, 일, 그리고 string 타입의 일기 내용 문자열을 property로 갖게 하였다.
 연,월,일을 date 타입으로 하지 않은건, realm 이 아직 date 타입엔 index를 지원하지 않고,
 검색 조건에 date를 between 형식으로 비교하는 것도 안되는 것 같아서 연-월-일로 나눠 두었다.
 
 ### 새로 생성할 일기의 ID값 구하기
 PK인 id 값은 고유해야 하므로, 일기를 쓸때마다 매번 달라져야 한다.
-DB의 시퀀스 처럼 자동으로 증가하는 기능은 없는 것 같아서 함수로 구현했다.
+DB의 시퀀스 처럼 자동으로 증가하는 기능은 없는 것 같아서 id를 구하는 함수를 구현했다.
 ```javascript
 getNextId(){
   var realm = this.realm;
@@ -91,7 +91,7 @@ create(data){
 ```
 데이터 생성은 realm의 create 함수를 호출한다. 
 
-data 파라미터는 schema와 동일한, 아래와 같은 형태이면 된다.
+data 파라미터는 위에서 정의한 모델 schema와 동일한, 아래와 같은 형태가 될 것이다.
 ``` javascript
 var diary_data = {
   id: 1,
@@ -103,8 +103,8 @@ var diary_data = {
 ```
 
 ### Update, 일기 데이터 수정
-수정은 생성과 동일한 함수를 사용한다.
-optional 인자인 세번째 인자 값에 `true` 를 호출하면 update로 동작한다.
+수정은 생성과 동일한 `create` 함수를 사용한다.
+대신 optional 인자인 세번째 인자 값에 `true` 를 호출하면 update로 동작한다.
 ```javascript
 update(data){
   var realm = this.realm;
@@ -123,14 +123,14 @@ getDiaryByYearMonth(year, month){
   return realm.objects('Diary').filtered('year == $0 and month == $1', year, month).sorted('day', true);
 }
 ```
-조건을 지정하여 조회하는 메소드가 `filtered` 이고, 정렬 메소드가 `sorted` 이다. 
+조건을 지정하여 조회하는 메소드가 `filtered` 이고, 데이터를 정렬하는 메소드가 `sorted` 이다. 
 전체 Diary 중에 인자로 전달받은 year와 month를 각각 $0, $1에 지정하여 조회하도록 하였다.
 
-날짜별로 정렬할 것이므로 `sorted`에 정렬 기준인 `day`를, 역순으로 정렬하기 위해 `true`를 전달한다.
-`sorted('day')` 처럼 정렬 기준만 쓰거나, 두번째 인자로 `false`를 쓰면 날짜 순서대로 정렬이 된다.
+날짜별로 정렬할 것이므로 `sorted`에 정렬 기준인 `day`를, **역순**으로 정렬하기 위해 `true`를 전달한다.
+`sorted('day')` 처럼 정렬 기준만 쓰거나, `sorted('day', false)` 처럼 두번째 인자로 `false`를 쓰면 날짜 순서대로 정렬이 된다.
 
 ### Delete, 일기 데이터 삭제
-삭제할 데이터의 `id`값을 전달받고, `delete`메소드를 호출하여 삭제한다.
+삭제할 `id`값을 전달받고, `delete`메소드를 호출하여 해당id값을 갖는 데이터를 삭제한다.
 ```javascript
 delete(diaryId){
   var realm = this.realm;
@@ -144,10 +144,11 @@ DB의 기본 기능인 CRUD에 대한 구현이 다 되었다.
 {% gist d435b7633e3f4268ee1eb179abc1ac7d DiaryRealm.js %}
 
 잘 연동되나 확인해보자.
-두개 파일만 수정하면 된다.
+두 파일만 수정하면 된다.
 
 ## DiaryListView 수정
 리스트뷰에서 수정할 부분은 `state`의 `datasource`를 지정하는 곳과 `renderRow` 이다.
+`realm`에서 제공하는 리스트를 사용하도록 `import`도 수정하였다.
 {% gist e22ea01d28fe83bfd453583d3ea1a5b5 DiaryListView.js %}
 
 임시 일기 데이터인 `TempDiaryContents` 를 불러오던 코드를 삭제하고,
