@@ -91,4 +91,10 @@ R키를 두번 눌러서 새로고침 하면 등록한 내용이 잘 표시되�
 
 # Ending
 
+여러 일이 겹치면서 아주아주 더디게 진행하던 `react native` 첫번째 앱은 글쓰기 구현을 마지막으로 중단한다.
+기능을 추가하자면 끝도 없이 많지만 `realm`을 연동한 대강의 구조를 구현했다는데에 의의를 둔다.
+`react native`에 `Map`, `AR`, `firebase` 등등 다른 모듈을 사용한 새 앱을 또 만들어 볼 것이다.
+
+그럼 오늘은 이만!
+
 [react-native-modal-link]: <https://facebook.github.io/react-native/docs/modal.html>
