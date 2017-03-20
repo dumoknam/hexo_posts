@@ -47,7 +47,7 @@ ___
 이런 기능을 구현하기 적당한 것이 [Modal View][react-native-modal-link]이다.
 
 구현 방법은 이렇다.
-Modal 은 화면에 표시된느 여부를 `modalVisible` 이란 이름의 `prop`으로 관리한다. 이 값을 글쓰기 `+`버튼을 누를때 `true`로 전달하여 나타나게 하고, 글쓰기 취소를 누르면 `false`로 변경되게 하여 화면에서 사라지게 할 것이다.
+Modal 은 화면 표시 여부를 `modalVisible` 이란 이름의 `prop`으로 관리한다. 이 값을 글쓰기 `+`버튼을 누를때 `true`로 전달하여 나타나게 하고, 글쓰기 취소를 누르면 `false`로 변경되게 하여 화면에서 사라지게 할 것이다.
 
 우선 `src\components\WriteModalView.js` 파일을 생성하자.
 
