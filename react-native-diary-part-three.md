@@ -117,7 +117,7 @@ module.exports = DiaryTitleView;
 여기서는 `StatusBar`의 글자색을 흰색으로 하는 `barStyle="light-content"`를 사용하기 위해 `import` 하였다. (`backgroundColor`는 안드로이드만 적용된다.)
 
 지금은 `headerText에` 고정된 값(2017 - 01)을 쓰고 있지만
-추후에 날짜를 선택하면 선택한 날짜가 표시되게 변경할 것이다.
+추후엔 현재 날짜가 표시되게 변경할 것이다.
 
 `DiaryTitleView.js`파일을 저장했으면, `index.ios.js`에서 불러들이게 하자.
 
