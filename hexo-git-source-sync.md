@@ -30,7 +30,7 @@ hexo 의 gandalfr 테마를 기준으로 작성하였다. (jade 템플릿)
 ### head.jade
 themes/gandalfr/layout/partial/head.jade 파일을 열고, 세 줄의 link 아래에 다음 코드를 추가하자.
 ```jade themes/gandalfr/layout/partial/head.jade
-link(rel="stylesheet", href=url_for("http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"))
+link(rel="stylesheet", href=url_for("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"))
 ```
 
 ### _config.yml
