@@ -13,6 +13,8 @@ ListView를 써서 일기 목록을 표시하자.
 
 <!-- more -->
 
+__이미지를 클라우드를 쓰다가 직접 올리는 방법으로 바꿨는데 블로그 옮기다가 날려먹었다.. 일기장 포스팅 스크린샷은 없다__
+
 ## 예제 코드 정리
 
 자동 생성된 코드를 정리할 시간이다.
@@ -139,7 +141,7 @@ import DiaryTitleView from './src/components/DiaryTitleView';
 
 그리고 `react-native run-ios`로 시뮬레이터를 실행하면 2017-01 문자열이 보인다.
 
-![title](title.png)
+__이미지 없음__ <!--![title](title.png)-->
 
 ## ListView
 
@@ -346,12 +348,12 @@ AppRegistry.registerComponent('Diary', () => Diary);
 
 파일을 저장하고 시뮬레이터에 Cmd+R로 리로드하면, 일기 목록이 나온다.
 
-![diary_list](list_fin.png)
+__이미지 없음__ <!--![diary_list](list_fin.png)-->
 
 
 물론 스크롤도 잘 된다.
 
-![diary_list_scroll](list_scroll.png)
+__이미지 없음__ <!--![diary_list_scroll](list_scroll.png)-->
 
 일기장 목록의 레이아웃은 만들어 졌으니, 다음엔 데이터베이스 연동을 해야겠다.
 

@@ -12,11 +12,13 @@ tags:
 
 <!-- more -->
 
+__이미지를 클라우드를 쓰다가 직접 올리는 방법으로 바꿨는데 블로그 옮기다가 날려먹었다.. 일기장 포스팅 스크린샷은 없다__
+
 ## 목업
 
 일기장 앱의 일기 리스트의 목업은 이렇다
 
-![diary_mockup](Diary.png)
+__이미지 없음__ <!--![diary_mockup](Diary.png)-->
 
 제일 위에 연도와 월(2017-01)이 타이틀로 있고, 일기 내용이 리스트로 쭉 이어지는 형태이다.
 오른쪽 하단에는 **글쓰기 버튼 +**이 있다.
@@ -27,13 +29,13 @@ tags:
 ### Diary 프로젝트 생성
 
 `react-native init Diary` 명령어로 프로젝트를 생성하자.
-![diary_init](0104_01_init.png)
+__이미지 없음__ <!--![diary_init](0104_01_init.png)-->
 
 이번 포스팅은 자동 생성된 코드에 버튼만 추가하겠다.
 > [NativeBase](http://nativebase.io)나 [react-native-action-button](https://github.com/mastermoo/react-native-action-button)같은 컴포넌트를 활용해도 좋다.
 
 완성된 버튼은 이런 모양이다.
-![write_button_fin](0105_01_write_button_fin.png)
+__이미지 없음__ <!--![write_button_fin](0105_01_write_button_fin.png)-->
 
 네이비색 동그란 버튼에 그림자 효과가있고 흰 글씨로 + 가 써있다.
 누르면 글쓰는 팝업이 떠야 하는데 그 기능은 다른 포스팅에서...
@@ -48,7 +50,7 @@ tags:
 `touch src/components/WriteButton.js`
 
 이런 구조가 된다
-![touch_file](0105_02_touch_file.png)
+__이미지 없음__ <!--![touch_file](0105_02_touch_file.png)-->
 
 에디터로 파일을 열어서 주석에 이름부터 써두자
 
@@ -178,7 +180,7 @@ AppRegistry.registerComponent('Diary', () => Diary);
 +가 보인다!
 > 파일을 수정하고 매번 run-ios를 할 필요는 없다. 시뮬레이터는 처음 한번만 실행하고, 파일을 수정한 뒤 시뮬레이터에서 Cmd + R 키를 눌러 새로고침 하면 바꾼 내용을 확인할 수 있다.
 
-![write_button_01](0105_03_write_button_01.png)
+__이미지 없음__ <!--![write_button_01](0105_03_write_button_01.png)-->
 
 이제 이 버튼을 꾸며보자.
 
@@ -418,9 +420,9 @@ genymotion android 에뮬레이터를 실행하고,
 `react-native run-android` 명령어로 앱을 실행하자.
 
 아이폰과 동일한(?) 화면이 나오고,
-![android_run](0105_04_android_run.png)
+__이미지 없음__ <!--![android_run](0105_04_android_run.png)-->
 버튼도 잘 동작한다.
-![android_button_press](0105_05_android_button_pressed.png)
+__이미지 없음__ <!--![android_button_press](0105_05_android_button_pressed.png)-->
 
 사실 아이폰과 안드로이드에는 조금 차이가 있다. 안드로이드는 버튼의 그림자 효과가 없는데, [react native 문서](http://facebook.github.io/react-native/releases/0.40/docs/shadow-props.html)를 보면 shadow prop에 ios 라벨만 붙어있다.
 android는 지원하지 않는다는 것인데.. 그래도 누군가는 만들어 두었을테니 구글에서 찾아보는것도 좋겠다.
